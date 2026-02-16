@@ -350,7 +350,7 @@ runBeamPostgresDebug dbg tickTock conn action =
     withPgDebug dbg tickTock conn action >>= either throwIO pure
 
 runBeamPostgres :: Pg.Connection -> Pg a -> IO a
-runBeamPostgres = runBeamPostgresDebug (\_ -> pure ()) (\_ _ _ -> pure ())
+runBeamPostgres = runBeamPostgresDebug (\_ -> pure ()) (\_ _ _ _ -> pure ())
 
 instance MonadBeam Postgres Pg where
     runReturningMany cmd consume =
