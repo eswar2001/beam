@@ -98,7 +98,7 @@ withTickTock callback tag query action = do
     pure result
 
 -- | Track execution time and GC stats, then call callback
-withTickTock' :: (Text -> Text -> Text -> ByteString -> IO ()) -> Text -> IO ByteString -> IO a
+withTickTock' :: (Text -> Text -> Text -> ByteString -> IO ()) -> Text -> IO ByteString -> IO ByteString
 withTickTock' callback tag action = do
     t1 <- getSystemTime
     rtsTick <- getRTSStats
